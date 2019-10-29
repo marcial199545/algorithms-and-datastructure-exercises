@@ -11,6 +11,16 @@
 //   fizz
 //   4
 //   buzz
+function fizzBuzz(n) {
+    let str = "";
+    for (let i = 1; i <= n; i++) {
+        str = i % 5 === 0 && i % 3 === 0 ? "fizzbuzz" : i % 3 === 0 ? "fizz" : i % 5 === 0 ? "buzz" : i;
+        console.log(str);
+    }
+}
+
+// fizzBuzz(15);
+
 // SECTION variation 1
 // function fizzBuzz(n) {
 //     let i = 1;
@@ -30,20 +40,20 @@
 // }
 
 // SECTION variation 2
-function fizzBuzz(n) {
-    // NOTE using for loop
-    let val = 1;
-    for (let i = 1; i <= n; i++) {
-        i % 3 === 0 && i % 5 === 0
-            ? (val = "fizzbuzz")
-            : i % 3 === 0
-            ? (val = "fizz")
-            : i % 5 === 0
-            ? (val = "buzz")
-            : (val = i);
-        console.log(val);
-    }
-}
+// function fizzBuzz(n) {
+//     // NOTE using for loop
+//     let val = 1;
+//     for (let i = 1; i <= n; i++) {
+//         i % 3 === 0 && i % 5 === 0
+//             ? (val = "fizzbuzz")
+//             : i % 3 === 0
+//             ? (val = "fizz")
+//             : i % 5 === 0
+//             ? (val = "buzz")
+//             : (val = i);
+//         console.log(val);
+//     }
+// }
 
 // SECTION variation 3
 // function fizzBuzz(n) {

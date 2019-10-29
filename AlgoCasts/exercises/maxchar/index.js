@@ -6,6 +6,7 @@
 // maxChar("apple 1231111") === "1"
 
 // ANCHOR to resolve this problem we basically have to transform the string into an object were the keys are the characters of the string and the values are the number of times they repeat
+
 // SECTION Variation 1
 // function maxChar(str) {
 //     let obj = {};
@@ -47,18 +48,31 @@
 //     return maxChar;
 // }
 
-// SECTION Variation 3
+// // SECTION Variation 3
+// function maxChar(str) {
+//     let charactersObj = {};
+//     let max = 0;
+//     let maxChar = "";
+//     for (let character of str) {
+//         charactersObj[character] = charactersObj[character] + 1 || 1;
+//     }
+//     for (let char in charactersObj) {
+//         if (charactersObj[char] > max) {
+//             max = charactersObj[char];
+//             maxChar = char;
+//         }
+//     }
+//     return maxChar;
+// }
 function maxChar(str) {
-    let charactersObj = {};
-    let max = 0;
+    let map = {};
+    let max = -Infinity;
     let maxChar = "";
-    for (let character of str) {
-        charactersObj[character] = charactersObj[character] + 1 || 1;
-    }
-    for (let char in charactersObj) {
-        if (charactersObj[char] > max) {
-            max = charactersObj[char];
-            maxChar = char;
+    for (let i = 0; i < str.length; i++) {
+        map[str[i]] = map[str[i]] ? ++map[str[i]] : 1;
+        if (map[str[i]] > max) {
+            max = map[str[i]];
+            maxChar = str[i];
         }
     }
     return maxChar;

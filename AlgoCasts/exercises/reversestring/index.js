@@ -18,24 +18,31 @@
 
 // SECTION solution without methods with for loop ****Faster****
 
-function reverse(str) {
-    if (typeof str !== "string") {
-        return "provide a string";
-    }
-    let output = "";
-    // NOTE classic for loop ***Fastest But more Prone to error***
-    for (let index = str.length - 1; index >= 0; index--) {
-        output += str[index];
-    }
-    // NOTE For of loop *** Takes almost the same time than the classic for ****
-    // for (let character of str) {
-    //     output = character + output;
-    // }
+// function reverse(str) {
+//     if (typeof str !== "string") {
+//         return "provide a string";
+//     }
+//     let output = "";
+//     // NOTE classic for loop ***Fastest But more Prone to error***
+//     for (let index = str.length - 1; index >= 0; index--) {
+//         output += str[index];
+//     }
+//     // NOTE For of loop *** Takes almost the same time than the classic for ****
+//     // for (let character of str) {
+//     //     output = character + output;
+//     // }
 
-    // NOTE For in loop *** Takes almost the same time than the classic for ****
-    // for (let index in str) {
-    //     output = str[index] + output;
-    // }
+//     // NOTE For in loop *** Takes almost the same time than the classic for ****
+//     // for (let index in str) {
+//     //     output = str[index] + output;
+//     // }
+//     return output;
+// }
+function reverse(str) {
+    let output = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        output += str[i];
+    }
     return output;
 }
 module.exports = reverse;

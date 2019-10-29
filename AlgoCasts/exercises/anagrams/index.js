@@ -77,14 +77,34 @@
 // }
 
 // SECTION solution 3 ** Slower **
-function cleanString(str) {
-    return str
-        .replace(/\W/g, "")
-        .split("")
-        .sort()
-        .join("");
-}
-function anagrams(stringA, stringB) {
-    return cleanString(stringA) === cleanString(stringB);
+// function cleanString(str) {
+//     return str
+//         .replace(/\W/g, "")
+//         .split("")
+//         .sort()
+//         .join("");
+// }
+// function anagrams(stringA, stringB) {
+//     return cleanString(stringA) === cleanString(stringB);
+// }
+function anagrams(str1, str2) {
+    if (str1.length !== str2.length) return false;
+    let result = true;
+    let mapStr1 = {};
+    let mapStr2 = {};
+    str1 = str1.trim();
+    str2 = str2.trim();
+    for (let i = 0; i < str1.length; i++) {
+        mapStr1[str1[i]] = mapStr1[str1[i]] ? ++mapStr1[str1[i]] : 1;
+        mapStr2[str2[i]] = mapStr2[str2[i]] ? ++mapStr2[str2[i]] : 1;
+    }
+    for (let char in mapStr1) {
+        if (mapStr1[char] !== mapStr2[char]) {
+            result = false;
+            break;
+        }
+    }
+
+    return result;
 }
 module.exports = anagrams;

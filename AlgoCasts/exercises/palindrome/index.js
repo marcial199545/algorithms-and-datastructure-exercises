@@ -28,39 +28,46 @@
 
 // SECTION regular without helper methods
 
+// function palindrome(str) {
+//     let output = "";
+//     if (typeof str !== "string") {
+//         let string = toString(str);
+//         let strLength = string.length;
+//         // NOTE Classic for loop
+//         for (let i = strLength - 1; i >= 0; i--) {
+//             output += string[i];
+//         }
+//         // NOTE For of loop
+//         // for (let character of string) {
+//         //     output = character + output;
+//         // }
+//         // NOTE For in loop
+//         // for (let index in string) {
+//         //     output = str[index] + output;
+//         // }
+//         return str === output;
+//     }
+//     let strLength = str.length;
+//     // NOTE Classic for loop
+//     // for (let i = strLength - 1; i >= 0; i--) {
+//     //     output += str[i];
+//     // }
+//     // NOTE For of loop
+//     // for (let character of str) {
+//     //     output = character + output;
+//     // }
+//     // NOTE For in loop
+//     for (let index in str) {
+//         output = str[index] + output;
+//     }
+//     return str === output;
+// }
 function palindrome(str) {
-    let output = "";
-    if (typeof str !== "string") {
-        let string = toString(str);
-        let strLength = string.length;
-        // NOTE Classic for loop
-        for (let i = strLength - 1; i >= 0; i--) {
-            output += string[i];
-        }
-        // NOTE For of loop
-        // for (let character of string) {
-        //     output = character + output;
-        // }
-        // NOTE For in loop
-        // for (let index in string) {
-        //     output = str[index] + output;
-        // }
-        return str === output;
+    let result = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        result += str[i];
     }
-    let strLength = str.length;
-    // NOTE Classic for loop
-    // for (let i = strLength - 1; i >= 0; i--) {
-    //     output += str[i];
-    // }
-    // NOTE For of loop
-    // for (let character of str) {
-    //     output = character + output;
-    // }
-    // NOTE For in loop
-    for (let index in str) {
-        output = str[index] + output;
-    }
-    return str === output;
+    return str === result;
 }
 module.exports = palindrome;
 

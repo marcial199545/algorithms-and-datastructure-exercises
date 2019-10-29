@@ -29,14 +29,49 @@
 // }
 
 // SECTION solution 3
-function chunk(array, size) {
+// function chunk(array, size) {
+//     let chunked = [];
+//     let index = 0;
+//     while (index < array.length) {
+//         chunked.push(array.slice(index, index + size));
+//         index += size;
+//     }
+//     return chunked;
+// }
+// function chunk(array, size) {
+//     let chunked = [];
+//     let index = 0;
+//     while (index < array.length) {
+//         chunked.push(array.slice(index, index + size));
+//         index += size;
+//     }
+//     return chunked;
+// }
+function chunk(arr, size) {
+    let indx = 0;
     let chunked = [];
-    let index = 0;
-    while (index < array.length) {
-        chunked.push(array.slice(index, index + size));
-        index += size;
+    let rigth = 0;
+    let count = 0;
+    let currentChunk = [];
+    while (indx < arr.length) {
+        while (count < size) {
+            if (arr[rigth] == undefined) {
+                break;
+            }
+            currentChunk.push(arr[rigth]);
+            rigth++;
+            count++;
+        }
+        indx = rigth;
+        count = 0;
+        chunked.push(currentChunk);
+        currentChunk = [];
     }
     return chunked;
 }
-
+// let count = 0;
+// let arr = Array(1000)
+//     .fill(count)
+//     .map(() => ++count);
+// console.log(chunk(arr, 3));
 module.exports = chunk;
